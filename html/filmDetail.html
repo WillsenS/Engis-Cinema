@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/filmDetail.css">
+    <link rel="shortcut icon" href="">
+    <script src="../js/filmDetail.js"></script>
+    <title>Film Detail</title>
+</head>
+
+<body class="defFont">
+    <div id="nav-bar">
+        <div id="Kosong1"></div>
+        <div id="Engi">
+            <p><b><span>Engi</span>ma</b></p>
+        </div>
+        <div id="Search">
+            <form method="POST" id="search-form">
+                <input type="text" placeholder="Search movie">
+                <input type="submit" value="">
+            </form>
+        </div>
+        <div id="Kosong2"></div>
+        <div id="Transaction">
+            <a><b>Transaction</b></a>
+        </div>
+        <div id="Logout">
+            <a><b>Logout</b></a>
+        </div>
+        <div id="Kosong3"></div>
+    </div>
+    <div class="film-content-container">
+        <div class="film-info1">
+            <div class="film-image">
+                <img id="fotoFilm" src="../img/film/tenki no ko.jpg">
+            </div>
+            <div class="film-detail">
+                <h2 class="judul"></h2>
+                <p class="biru"><b><span id="genre"></span> | <span id="durasi"></span> mins</b></p>
+                <p class="abu"><b>Released date: <span id="releaseDate"></span></b></p>
+                <div class="rating">
+                    <div class="star"></div>
+                    <p><span id="rerataRating"></span>/ 10</p>
+                </div>
+                <p class="deskripsi"></p>
+            </div>
+            <script type="text/javascript">
+                var url = new URL(location);
+                var id = url.searchParams.get("id");
+                connectPHPGET("http://localhost/wbd/php/getFilm.php?id=" + id, function (has) {
+                    renderDetail(document, has);
+                })
+            </script>
+        </div>
+        <div class="film-info2">
+            <div class="film-schedules film-content-box">
+                <h2>Schedules</h2>
+                <table class="jadwal">
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Available Seats</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <script type="text/javascript">
+                        var url = new URL(location);
+                        var id = url.searchParams.get("id");
+                        connectPHPGET("http://localhost/wbd/php/getSchedule.php?id=" + id, function (has) {
+                            renderSchedule(document, has);
+                        })
+                    </script>
+                </table>
+            </div>
+            <div class="film-reviews film-content-box">
+                <h2>Reviews</h2>
+                <script type="text/javascript">
+                    var url = new URL(location);
+                    var id = url.searchParams.get("id");
+                    connectPHPGET("http://localhost/wbd/php/getReview.php?id=" + id, function (has) {
+                        renderReview(document, has);
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
