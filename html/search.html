@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/color.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/search.css">
     <link rel="shortcut icon" href="">
     <script src="../js/token.js"></script>
-    <script src="../js/home.js"></script>
+    <script src="../js/search.js"></script>
     <script src="../js/navbar.js"></script>
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search</title>
 </head>
 
 <!-- <body class="defFont"> -->
@@ -35,18 +36,24 @@
         </div>
         <div id="Kosong3"></div>
     </div>
-    <div class="home-content-container">
-        <div class="home-content">
-            <b class="hello">Hello, <span class="user-name blue"></span>!</b>
+    <div class="search-content-container">
+        <div class="search-content">
+            <b class="showing">Showing search result for keyword "<span class="keyword"></span>"</b>
+            <p class="res-avail gray"><span class="search-number"></span> results available</p>
             <script type="text/javascript">
-                showName(document);
+                var url = new URL(location);
+                var keyword = url.searchParams.get("name");
+                showKeyword(document, keyword);
             </script>
-            <p class="now-play">Now Playing</p>
-            <div class="film-list">
-                <script type="text/javascript">
-                    showFilmList(document, location);
-                </script>
-            </div>
+            <div class="film-list"></div>
+            <script type="text/javascript">
+                var url = new URL(location);
+                var name = url.searchParams.get("name");
+                showSearchResult(document, location, name, 1, 3);
+            </script>
+        </div>
+        <div class="pagination-container">
+            <div class="pagination"></div>
         </div>
     </div>
 

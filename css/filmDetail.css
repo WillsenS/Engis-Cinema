@@ -13,6 +13,8 @@ body{
     width: 80%;
     display: grid;
     margin: 0 auto;
+    min-height: calc(100% - 170px);
+    height: auto;
     box-shadow: inset 0px 105px 9px -6px gray;
     padding: 20px 40px;
     padding-top: 150px;
@@ -64,13 +66,6 @@ body{
     margin: 0;
 }
 
-.biru, .seatA {
-    color: #32beda;
-}
-
-.abu {
-    color: grey;
-}
 
 .rating {
     display: flex;
@@ -124,14 +119,6 @@ th, td {
     font-size: 17px; 
     padding: 10px;
     color: grey;
-}
-
-.black {
-    color: black;
-}
-
-.seatNA {
-    color: red;
 }
 
 .seatNA, .seatA {

@@ -1,0 +1,144 @@
+.search-content-container{
+    background-color: white;
+    width: 80%;
+    min-height: calc(100% - 170px);
+    height: auto;
+    margin: 0 auto;
+    box-shadow: inset 0px 105px 9px -6px gray;
+    padding: 20px 40px;
+    padding-top: 150px;
+}
+
+.search-content {
+    padding: 0px 80px;
+}
+
+.showing {
+    font-size: 30px;
+}
+
+.res-avail {
+    margin: 10px 0px;
+    font-size: 25px;
+}
+
+.film-card {
+    display: grid;
+    grid-template-columns: 150px 1fr 200px;
+    padding: 20px 0px;
+}
+
+.img-container {
+    margin-right: 20px;
+}
+
+.film-img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.detail-container {
+    margin-top: 20px;
+}
+
+.film-title {
+    font-size: 20px;
+}
+
+.film-detail {
+    margin: 0;
+}
+
+.film-rating {
+    display: flex;
+    margin: 5px;
+    align-items: flex-end;
+}
+
+.film-rating > p {
+    margin: 0;
+}
+
+.rerataRating {
+    font-size: 18px;
+    padding: 5px;
+}
+
+.star {
+    background: url("../img/star.png");
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-self: center;
+
+}
+
+.viewDetail-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.viewDetail {
+    display: flex;
+    align-items: center;
+}
+
+.viewDetail-text {
+    font-size: 18px;
+}
+
+.blue-arrow {
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.pagination-container {
+    margin-top : 50px;
+    width: 100%;
+}
+
+.pagination {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.back, .next {
+    font-size: 18px;
+    padding: 0px 10px;
+}
+
+.page-box {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 0px 10px;
+}
+
+.page-box.blue{
+    border: 2px solid #32beda;
+    transition: 0.5s;
+}
+
+.page-box.blue:hover{
+    background-color: #32beda;
+    color: white;
+}
+
+.page-box.gray{
+    border: 2px solid gray;
+}
+
+.page-box > p {
+    margin: auto;
+    text-align: center;
+}
