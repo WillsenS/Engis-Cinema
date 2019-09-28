@@ -11,31 +11,41 @@ function getToken(doc, tokenName) {
     return hasil;
 }
 
-function getIdFromToken(token) {
+function getIdFromToken(doc, loc, token, redirect) {
     var xmlhttp = new XMLHttpRequest();
     var hasil = "";
     var id = -1;
-    xmlhttp.open("GET", "http://localhost/wbd/php/getId.php?token=" + token, false);
+    xmlhttp.open("GET", "http://localhost/wbd/php/getId.php?token=" + token);
     xmlhttp.onload = function () {
         hasil = JSON.parse(xmlhttp.responseText);
-        id = hasil["user_id"];
+        userId = hasil["user_id"];
+        if (userId !== -1) {
+            if (redirect) {
+                loc.href = "../html/home.html";
+            }
+        } else {
+            // Hapus token
+            delCookie(doc, "accessTokenWBD");
+            loc.href = "../html/login.html";
+        }
     }
     xmlhttp.send();
     return id;
 }
 
-function validateAccessToken(loc, token) {
-    var userId = getIdFromToken(token);
-    console.log(userId);
-    if (userId !== -1) {
-        loc.href = "http://localhost/wbd/html/home.html";
-    }
+function delCookie(doc, cookieName) {
+    cookieStr = cookieName+'=""; expires=' + new Date(Date.now()).toUTCString() + '; path=/';
+    doc.cookie = cookieStr;
 }
 
 
-function load(doc, loc) {
+function load(doc, loc, redirect) {
     var token = getToken(doc, "accessTokenWBD");
     if (token !== "") {
-        validateAccessToken(loc, token);
+        getIdFromToken(doc, loc, token, redirect);
+    }else{
+        if(!redirect){
+            loc.href = "../html/login.html";
+        }
     }
 }

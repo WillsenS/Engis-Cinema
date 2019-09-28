@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 22, 2019 at 06:04 PM
+-- Generation Time: Sep 28, 2019 at 09:34 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -45,7 +45,11 @@ CREATE TABLE `film` (
 INSERT INTO `film` (`film_id`, `title`, `film_picture`, `genre`, `durasi`, `released_date`, `detail`) VALUES
 (1, 'Weathering With You (天気の子)', 'tenki no ko.jpg', 'Drama, Fantasy, Romance, Slice of Life', 114, '2019-07-19', 'The summer of his high school freshman year, Hodaka runs away from his remote island home to Tokyo, and quickly finds himself pushed to his financial and personal limits. The weather is unusually gloomy and rainy every day, as if to suggest his future. He lives his days in isolation, but finally finds work as a writer for a mysterious occult magazine. Then one day, Hodaka meets Hina on a busy street corner. This bright and strong-willed girl possesses a strange and wonderful ability: the power to stop the rain and clear the sky...'),
 (2, 'Avengers: Endgame', 'avengers endgame.jpeg', 'Action, Adventure, Fantasy, Superhero, Science Fiction', 182, '2019-04-24', 'Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.'),
-(3, 'Gundala', 'gundala.jpg', 'Action, Drama, Superhero', 123, '2019-08-29', 'Indonesia\'s preeminent comic book superhero and his alter ego Sancaka enter the cinematic universe to battle the wicked Pengkor and his diabolical squad of orphan assassins.');
+(3, 'Gundala', 'gundala.jpg', 'Action, Drama, Superhero', 123, '2019-08-29', 'Indonesia\'s preeminent comic book superhero and his alter ego Sancaka enter the cinematic universe to battle the wicked Pengkor and his diabolical squad of orphan assassins.'),
+(4, 'Midsommar', 'midsommar.jpeg', 'Drama, Horror, Mystery', 187, '2019-09-07', 'A couple travel to Sweden to visit their friend\'s rural hometown for its fabled midsummer festival, but what begins as an idyllic retreat quickly devolves into an increasingly violent and bizarre competition at the hands of a pagan cult.'),
+(5, 'One Piece: Stampede', 'stampede.jpeg', 'Fantasy, Action', 101, '2019-09-18', 'The world\'s boldest buccaneers set sail for the great Pirate Festival, where the Straw Hats join a mad-dash race to find Gol D.Roger\'s treasure. There\'s just one little problem. An old member of Roger\'s crew has a sinister score to settle. All bets are off when the most iconic pirates of One Piece history band together for a swashbuckling showdown, the likes of which have never been seen!'),
+(6, 'Twiceland', 'twiceland.jpeg', 'Documentary', 110, '2018-12-07', 'The girl group Twice\'s big-screen film is the movie version of their world tour \'Twiceland Zone 2: Fantasy Park\'.'),
+(7, 'Ad Astra', 'ad astra.jpeg', 'Adventure, Drama, Mystery', 123, '2019-09-20', 'Astronaut Roy McBride undertakes a mission across an unforgiving solar system to uncover the truth about his missing father and his doomed expedition that now, 30 years later, threatens the universe.');
 
 -- --------------------------------------------------------
 
@@ -82,6 +86,14 @@ CREATE TABLE `login` (
   `cookies` varchar(40) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`user_id`, `cookies`) VALUES
+(1, 'xosr5ZDHZaLH8B1qepavqj05GJNrrVV7vOaKCnBP'),
+(3, 'LdF3ROUnhExI0edSRUYQzeVFq1VTkMi9t5BMg10e');
+
 -- --------------------------------------------------------
 
 --
@@ -102,12 +114,16 @@ CREATE TABLE `schedule` (
 
 INSERT INTO `schedule` (`schedule_id`, `film_id`, `date`, `time`, `available_seat`) VALUES
 (1, 1, '2019-09-03', '18:30:00', 10),
-(2, 1, '2019-09-05', '18:30:00', 25),
+(2, 1, '2019-09-28', '18:30:00', 25),
 (3, 3, '2019-09-14', '17:00:00', 2),
 (4, 3, '2019-09-12', '18:30:00', 12),
 (5, 3, '2019-09-08', '15:06:00', 0),
-(6, 3, '2019-09-08', '15:02:00', 2),
-(7, 3, '2019-09-09', '15:02:00', 0);
+(6, 3, '2019-09-28', '15:02:00', 2),
+(7, 3, '2019-09-09', '15:02:00', 0),
+(8, 7, '2019-09-20', '12:00:00', 5),
+(9, 7, '2019-09-21', '12:31:26', 53),
+(10, 4, '2019-09-08', '10:21:22', 10),
+(11, 7, '2019-09-21', '13:31:26', 50);
 
 -- --------------------------------------------------------
 
@@ -127,8 +143,10 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`film_id`, `schedule_id`, `seat`, `user_id`) VALUES
+(7, 8, 5, 1),
 (1, 1, 8, 2),
-(1, 2, 1, 3);
+(1, 2, 1, 3),
+(4, 10, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -150,9 +168,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `email`, `phone_number`, `password`, `profile_picture`) VALUES
-(1, 'AdityaPutraS', 'adityaputra159@gmail.com', '089679357199', 'test1234', NULL),
+(1, 'AdityaPutraS', 'adityaputra159@gmail.com', '089123456789', 'test1234', NULL),
 (2, 'antonio wahyu', 'antonio@email.com', '123456789012', 'abcde', 'animeKids.jpeg'),
-(3, 'mingtaros', 'mingtaros@mail.com', '123456789013', '1234', 'animeKids.jpg');
+(3, 'mingtaros', 'mingtaros@mail.com', '123456789013', '1234', 'animeKids.jpeg');
 
 --
 -- Indexes for dumped tables
@@ -197,6 +215,28 @@ ALTER TABLE `ticket`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `film`
+--
+ALTER TABLE `film`
+  MODIFY `film_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

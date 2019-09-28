@@ -23,7 +23,7 @@ function checkLogin(doc, loc) {
         console.log(hasil);
         hasil = JSON.parse(xmlhttp.responseText);
         if(hasil["status"] === 200) {
-            cookieStr = "accessTokenWBD="+hasil["cookie"]+"; expires="+new Date(Date.now() + 60000).toUTCString()+"; path=/";
+            cookieStr = "accessTokenWBD="+hasil["cookie"]+"; expires="+new Date(Date.now() + 600000).toUTCString()+"; path=/";
             console.log(cookieStr);
             doc.cookie = cookieStr;
             loc.href = "login.html";
