@@ -35,10 +35,6 @@ body{
     flex-grow: 2;
 }
 
-#Engi > p > b > span {
-    color: rgb(50, 190, 218);
-}
-
 #Search{
     display: flex;
     flex-grow: 2;
@@ -91,7 +87,7 @@ body{
 }
 
 #Transaction:hover, #Logout:hover {
-    background-color: rgba(50, 190, 218, 0.7);
+    background-color: #32bedab3;
     /* color: white; */
 }
 

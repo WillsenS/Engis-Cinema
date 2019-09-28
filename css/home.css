@@ -1,6 +1,8 @@
 .home-content-container{
     background-color: white;
     width: 80%;
+    min-height: calc(100% - 170px);
+    height: auto;
     margin: 0 auto;
     box-shadow: inset 0px 105px 9px -6px gray;
     padding: 20px 40px;
@@ -13,10 +15,6 @@
 
 .hello {
     font-size: 2em;
-}
-
-.user-name {
-    color: #32beda;
 }
 
 .now-play {

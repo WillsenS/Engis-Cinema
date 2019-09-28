@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/color.css">
     <link rel="stylesheet" href="../css/filmDetail.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="shortcut icon" href="">
@@ -17,7 +18,7 @@
     <div id="nav-bar">
         <div id="Kosong1"></div>
         <div id="Engi">
-            <p onclick="goHome(location)"><b><span>Engi</span>ma</b></p>
+            <p onclick="goHome(location)"><b><span class="blue">Engi</span>ma</b></p>
         </div>
         <div id="Search">
             <form method="POST" id="search-form" onsubmit="search(document, location); return false;">
@@ -41,8 +42,8 @@
             </div>
             <div class="film-detail">
                 <h2 class="judul"></h2>
-                <p class="biru"><b><span id="genre"></span> | <span id="durasi"></span> mins</b></p>
-                <p class="abu"><b>Released date: <span id="releaseDate"></span></b></p>
+                <p class="blue"><b><span id="genre"></span> | <span id="durasi"></span> mins</b></p>
+                <p class="gray"><b>Released date: <span id="releaseDate"></span></b></p>
                 <div class="rating">
                     <div class="star"></div>
                     <p><span id="rerataRating"></span>/ 10</p>

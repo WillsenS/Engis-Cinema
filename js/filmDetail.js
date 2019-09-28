@@ -40,13 +40,13 @@ function renderSchedule(dis, hasil) {
 
         if (parseInt(has["available_seat"]) > 0) {
             status.innerHTML = "Book Now";
-            status.className = "seatA";
+            status.className = "seatA blue";
 
             img.src = "../img/arrow blue.png";
             status_img.appendChild(img);
         }else{
             status.innerHTML = "Not Available";
-            status.className = "seatNA";
+            status.className = "seatNA red";
 
             img.src = "../img/x mark red.png";
             status_img.appendChild(img);
@@ -76,11 +76,11 @@ function renderReview(dis, hasil) {
     //             bibendum lacus sem, eu lacinia dui hendrerit pharetra.</p>
     //     </div>
     // </div>
-    // <hr class="abu"></hr>
+    // <hr class="gray"></hr>
     hasil = JSON.parse(hasil);
     filmReview = dis.getElementsByClassName("film-reviews")[0];
     hr = dis.createElement("hr");
-    hr.className = "abu";
+    hr.className = "gray";
     for (let i = 0; i < hasil.length; i++) {
         const element = hasil[i];
         var card = dis.createElement("div");
