@@ -1,8 +1,13 @@
 function showMsg(id, msg) {
 	document.getElementById(id).style.display = 'block';
 	document.getElementById(id).innerHTML = msg;
+	console.log(msg);
 }
 
+
+var usernameUnique = false;
+var emailUnique = false;
+var phoneUnique = false;
 
 function checkUsername(doc) {
 	var xmlhttp = new XMLHttpRequest();
@@ -18,10 +23,12 @@ function checkUsername(doc) {
 		if (hasil !== 200) {
 			doc.getElementsByName("username")[0].className += " notUnik";
 			showMsg("usernameError", "Username is taken");
-		}else{
+		} else {
 			doc.getElementsByName("username")[0].className += " unik";
 			document.getElementById("usernameError").style.display = 'none';
+			usernameUnique = true;
 		}
+		isUserValid(doc.getElementsByName("username")[0].value);
 	}
 }
 
@@ -39,10 +46,12 @@ function checkEmail(doc) {
 		if (hasil !== 200) {
 			doc.getElementsByName("email")[0].className += " notUnik";
 			showMsg("emailError", "Email is taken, or invalid email format");
-		}else{
+		} else {
 			doc.getElementsByName("email")[0].className += " unik";
 			document.getElementById("emailError").style.display = 'none';
+			emailUnique = true;
 		}
+		isEmailValid(doc.getElementsByName("email")[0].value);
 	}
 }
 
@@ -60,29 +69,46 @@ function checkPhone(doc) {
 		if (hasil !== 200) {
 			doc.getElementsByName("phone")[0].className += " notUnik";
 			showMsg("phoneError", "Please use another phone number");
-		}else{
+		} else {
 			doc.getElementsByName("phone")[0].className += " unik";
 			document.getElementById("phoneError").style.display = 'none';
+			phoneUnique = true;
 		}
+		isPhoneValid(doc.getElementsByName("phone")[0].value);
 	}
 }
 
 function checkCPass(doc) {
-	if (doc.getElementsByName("pass") == doc.getElementsByName("cpass")) {
-		showMsg("passwordError", "Password is not the same")
+	doc.getElementsByName("pass")[0].className = "input-text";
+	doc.getElementsByName("cpass")[0].className = "input-text";
+	if (doc.getElementsByName("pass")[0].value != doc.getElementsByName("cpass")[0].value) {
+		showMsg("passwordError", "Password is not the same");
+		doc.getElementsByName("pass")[0].className += " notUnik";
+		doc.getElementsByName("cpass")[0].className += " notUnik";
 		return false;
 	}
 	else {
+		doc.getElementsByName("cpass")[0].className += " unik";
+		doc.getElementsByName("pass")[0].className += " unik";
+		document.getElementById("passwordError").style.display = 'none';
 		return true;
 	}
 }
 
 function isUserValid(username) {
 	for (i in username) {
-		if (!(username.charCodeAt(i) >= 65) && (username.charCodeAt(i) <= 90)) {
-			if (!(username.charCodeAt(i) >= 97) && (username.charCodeAt(i) <= 122) && (username.charCodeAt(i) != 95)) {
-				showMsg("usernameError", "Username should use only alphabetical, numbers, and underscore")
-				return false;
+		var c = username.charCodeAt(i);
+		//Check huruf
+		if (!(c >= 65 && c <= 90)) {
+			if (!(c >= 97 && c <= 122)) {
+				//Cek angka
+				if (!(c >= 48 && c <= 57)) {
+					//Cek _
+					if (c !== 95) {
+						showMsg("usernameError", "Username should use only alphabetical, numbers, and underscore");
+						return false;
+					}
+				}
 			}
 		}
 	}
@@ -95,22 +121,28 @@ function isEmailValid(email) {
 			return true;
 		}
 		else {
-			showMsg("emailError", "Enter valid email!")
+			showMsg("emailError", "Enter valid email!");
 			return false;
 		}
 	}
 	else {
-		showMsg("emailError", "Enter valid email!")
+		showMsg("emailError", "Enter valid email!");
 		return false;
 	}
 }
 
 function isPhoneValid(phone) {
 	if ((phone.length >= 9) && (phone.length <= 12)) {
+		for (i in phone) {
+			if (phone.charCodeAt(i) < 48 || phone.charCodeAt(i) > 57) {
+				showMsg("phoneError", "Phone Number should contain only number");
+				return false;
+			}
+		}
 		return true;
 	}
 	else {
-		showMsg("phoneError", "Phone Number length should be 9-12")
+		showMsg("phoneError", "Phone Number length should be 9-12");
 		return false;
 	}
 }
@@ -130,20 +162,22 @@ function checkSubmit(doc, loc) {
 	dataForm.append("imgEncoded", imgEncoded);
 	dataForm.append("imgPath", imgPath);
 	// if(true){
-	if (isUserValid(doc.getElementsByName("username")) && (isEmailValid(doc.getElementsByName("username"))) && (isPhoneValid(doc.getElementsByName("username"))) && (checkCPass(doc.getElementsByName("cpass")))) {
-		xmlhttp.send(dataForm);
-		var hasil = "";
-		xmlhttp.onload = function () {
-			console.log("Done uploading");
-			console.log(xmlhttp.responseText);
-			hasil = JSON.parse(xmlhttp.responseText);
-			if (hasil["status"] === 200) {
-				cookieStr = "accessTokenWBD=" + hasil["cookie"] + "; expires=" + new Date(Date.now() + 600000).toUTCString() + "; path=/";
-				console.log(cookieStr);
-				doc.cookie = cookieStr;
-				loc.href = "login.html";
-			}
+	if (isUserValid(doc.getElementsByName("username")[0].value) && (isEmailValid(doc.getElementsByName("email")[0].value)) && (isPhoneValid(doc.getElementsByName("phone")[0].value)) && (checkCPass(doc))) {
+		if (usernameUnique && emailUnique && phoneUnique) {
+			xmlhttp.send(dataForm);
+			var hasil = "";
+			xmlhttp.onload = function () {
+				console.log("Done uploading");
+				console.log(xmlhttp.responseText);
+				hasil = JSON.parse(xmlhttp.responseText);
+				if (hasil["status"] === 200) {
+					cookieStr = "accessTokenWBD=" + hasil["cookie"] + "; expires=" + new Date(Date.now() + 600000).toUTCString() + "; path=/";
+					console.log(cookieStr);
+					doc.cookie = cookieStr;
+					loc.href = "login.html";
+				}
 
+			}
 		}
 	}
 }
@@ -153,7 +187,7 @@ function readImg(doc) {
 	if (pic.files && pic.files[0]) {
 		var fr = new FileReader();
 		imgPath = pic.files[0].name;
-		doc.getElementById("imgUpload-dummy").value = imgPath; 
+		doc.getElementById("imgUpload-dummy").value = imgPath;
 		fr.addEventListener("load", function (event) {
 			imgEncoded = event.target.result;
 		});
