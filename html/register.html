@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/register.css">
+	<link rel="stylesheet" type="text/css" href="../css/color.css">
+	<script src="../js/token.js"></script>
+	<script src="../js/register.js"></script>
+</head>
+
+<body class="defFont">
+	<div class="register-container">
+		<div class="register-box">
+			<h2 class="welcome"> Welcome to <strong>Engi</strong>ma! </h2>
+			<form class="register-form" method="POST"
+				onsubmit="checkSubmit(document, location); return false;">
+				<p><b>Username</b></p>
+				<input class="input-text" type="text" name="username" placeholder="Joe.Johndoe"
+					onchange="checkUsername(document)"><br>
+				<p id="usernameError" class="errorMsg red"></p>
+				<p><b>Email Address</b></p>
+				<input class="input-text" type="text" name="email" placeholder="joe@email.com"
+					onchange="checkEmail(document)"><br>
+				<p id="emailError" class="errorMsg red"></p>
+				<p><b>Phone Number</b></p>
+				<input class="input-text" type="text" name="phone" placeholder="+628xxxxxxxxx"
+					onchange="checkPhone(document)"><br>
+				<p id="phoneError" class="errorMsg red"></p>
+				<p><b>Password</b></p>
+				<input class="input-text" type="password" name="pass" placeholder="Make as strong as possible"><br>
+				<p><b>Confirm Password</b></p>
+				<input class="input-text" type="password" name="cpass" placeholder="Same as above"
+					onchange="checkCPass(document)"><br>
+				<p id="passwordError" class="errorMsg red"></p>
+				<p><b>Profile Picture</b></p>
+				<div class="imgUpload-container">
+					<input id="imgUpload" class="input-text" type="file" name="picture" accept="image/*"
+						onchange="readImg(document)" />
+					<input id="imgUpload-dummy" type="dummy" name="dummy" readonly>
+					<label class="imgUpload-button" for="imgUpload">Browse</label>
+				</div>
+				<input class="submit-button" type="submit" value="Register">
+			</form>
+			<b>Already have an account? <a class="blue" href="../html/login.html">Login Here</a></b>
+			</p>
+		</div>
+	</div>
+</body>
+
+</html>

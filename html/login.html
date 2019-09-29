@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js"></script>
+    <script src="../js/token.js"></script>
+    <title>Login</title>
+</head>
+
+<body onload="load(document, location, true)">
+    <div id="login-container">
+        <div id="login-box">
+            <p id="welcome">Welcome to <b>Engi</b>ma!</p>
+            <div id="wrong"></div>
+            <!-- <p><b id="email-wrong">Wrong email / password</b></p> -->
+            <form method="POST" id="login-form" onsubmit="checkLogin(document, location); return false">
+            <!-- <form method="POST" id="login-form" action="../php/login.php"> -->
+                <p><b>Email</b></p>
+                <input type="text" name="email" placeholder="john@doe.com" id="login-text"></input>
+                <br>
+                <p><b>Password</b></p>
+                <input type="password" name="password" placeholder="place here" id="login-text"></input>
+                <br>
+                <br>
+                <input type="submit" value="login" name="login" id="login-button"></input>
+            </form>
+            <br>
+            <p  id="register"><b>Don't have an account? <a href="register.html">Register here</a></b></p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/color.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/search.css">
+    <link rel="shortcut icon" href="">
+    <script src="../js/token.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/navbar.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search</title>
+</head>
+
+<!-- <body class="defFont"> -->
+<body class="defFont" onload="load(document, location, false)">
+    <div id="nav-bar">
+        <div id="Kosong1"></div>
+        <div id="Engi">
+            <p onclick="goHome(location)"><b><span class="blue">Engi</span>ma</b></p>
+        </div>
+        <div id="Search">
+            <form method="POST" id="search-form" onsubmit="search(document, location); return false;">
+                <input id="movieName" type="text" placeholder="Search movie">
+                <input type="submit" value="">
+            </form>
+        </div>
+        <div id="Kosong2"></div>
+        <div id="Transaction" onclick="goTransc(location)">
+            <a><b>Transaction</b></a>
+        </div>
+        <div id="Logout" onclick="logout(document, location)">
+            <a><b>Logout</b></a>
+        </div>
+        <div id="Kosong3"></div>
+    </div>
+    <div class="search-content-container">
+        <div class="search-content">
+            <b class="showing">Showing search result for keyword "<span class="keyword"></span>"</b>
+            <p class="res-avail gray"><span class="search-number"></span> results available</p>
+            <script type="text/javascript">
+                var url = new URL(location);
+                var keyword = url.searchParams.get("name");
+                showKeyword(document, keyword);
+            </script>
+            <div class="film-list"></div>
+            <script type="text/javascript">
+                var url = new URL(location);
+                var name = url.searchParams.get("name");
+                showSearchResult(document, location, name, 1, 3);
+            </script>
+        </div>
+        <div class="pagination-container">
+            <div class="pagination"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
