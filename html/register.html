@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/register.css">
 	<script src="../js/token.js"></script>
 	<script src="../js/register.js"></script>
 </head>
+
 <body onload="load(document, location, true)">
 	<h1> Welcome to <strong>Engi</strong>ma! </h1>
-	<form method="POST" onsubmit="">
+	<form method="POST" onsubmit="checkSubmit(document); return false;">
 		<p>
 			Username<br>
 			<input type="text" name="username" placeholder="Joe.Johndoe" onchange="checkUsername(document)"><br>
@@ -24,12 +26,14 @@
 			<input type="password" name="cpass" placeholder="Same as above" onchange="checkCPass(document)"><br>
 			<p id="passwordError" style="color: red; font-size: 6px; display: none;"></p>
 			Profile Picture<br>
-			<input type="file" name="picture" accept="image/*" />
+			<input type="file" name="picture" accept="image/*" onchange="readImg(document)"/>
 			<input style="background-color: DodgerBlue;color: white;" type="submit" value="Register">
 		</p>
-		<p style= "font-weight: bold;font-family:Calibri;margin-left: 39%">
+		<p style="font-weight: bold;font-family:Calibri;margin-left: 39%">
 			Already have an account?
 			<a href="">Login Here</a>
 		</p>
+	</form>
 </body>
+
 </html>
