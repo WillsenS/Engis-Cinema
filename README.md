@@ -21,31 +21,35 @@ Database yang digunakan bisa dilihat di wbd.sql
 ## Screenschot
 
 ### Login Page
-![](imgReadme/login.jpg)
+![](imgReadme/login.png)
 
 #### Login Page Wrong Password
-![](imgReadme/loginWrongPwd.jpg)
+![](imgReadme/loginWrongPwd.png)
 
 ### Register
-![](imgReadme/register.jpg)
+![](imgReadme/register.png)
 
 ### Home
-![](imgReadme/home.jpg)
+![](imgReadme/home.png)
 
 ### Film Detail
-![](imgReadme/filmDetail.jpg)
+![](imgReadme/filmDetail.png)
 
 ### Pemesanan Ticket
-![](imgReadme/pemesanan.jpg)
+![](imgReadme/pemesanan.png)
 
 #### Pemesanan Ticket Berhasil
-![](imgReadme/pemesananSucc.jpg)
+![](imgReadme/pemesananSucc.png)
 
 ### Search Page
-![](imgReadme/search.jpg)
+![](imgReadme/search.png)
 
 ### Review
-![](imgReadme/userReview.jpg)
+![](imgReadme/userReview.png)
+
+### Transaction
+![](imgReadme/transaction.png)
+
 
 ## Pembagian Tugas
 
