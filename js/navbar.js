@@ -9,7 +9,7 @@ function goTransc(loc) {
 function search(doc, loc) {
     var movieName = doc.getElementById("movieName").value;
     loc.href = "../html/search.html?name=" + movieName;
-    console.log(loc.href);
+    // console.log(loc.href);
 }
 
 function logout(doc, loc) {

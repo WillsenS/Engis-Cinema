@@ -8,7 +8,7 @@
         FROM (   
             SELECT DISTINCT film_id, title, film_picture
             FROM film NATURAL JOIN schedule
-            WHERE date <> DATE(NOW())
+            WHERE date >= DATE(NOW())
         ) as f LEFT JOIN (
             SELECT film_id, avg(rating) AS avg_rating
             FROM film_review

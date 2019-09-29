@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/color.css">
+    <link rel="stylesheet" href="../css/buyTicket.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="shortcut icon" href="">
+    <script src="../js/token.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/buyTicket.js"></script>
+    <title>Buy Ticket</title>
+</head>
+
+<body class="defFont">
+    <!-- <body class="defFont" onload="load(document, location, false)"> -->
+    <div id="nav-bar">
+        <div id="Kosong1"></div>
+        <div id="Engi">
+            <p onclick="goHome(location)"><b><span class="blue">Engi</span>ma</b></p>
+        </div>
+        <div id="Search">
+            <form method="POST" id="search-form" onsubmit="search(document, location); return false;">
+                <input id="movieName" type="text" placeholder="Search movie">
+                <input type="submit" value="">
+            </form>
+        </div>
+        <div id="Kosong2"></div>
+        <div id="Transaction" onclick="goTransc(location)">
+            <a><b>Transaction</b></a>
+        </div>
+        <div id="Logout" onclick="logout(document, location)">
+            <a><b>Logout</b></a>
+        </div>
+        <div id="Kosong3"></div>
+    </div>
+    <div class="buy-container">
+        <div class="buy-content">
+            <div class="buy-header">
+                <img class="back-arrow" src="../img/arrow blue.png">
+                <div class="buy-detail">
+                    <h2><b><span class="title"></span></b></h2>
+                    <h3><span class="schedule"></span></h3>
+                </div>
+            </div>
+            <hr>
+            <div class="buy-isi">
+                <div class="seat-choose">
+                    <div class="seat-grid-container">
+                        <div class="seat-grid"></div>
+                    </div>
+                    <div class="screen-container">
+                        <div class="screen"><b>Screen</b></div>
+                    </div>
+                </div>
+                <div class="vertical-sep"></div>
+                <div class="summary">
+                    <h2 class="booking-summary dark-grey">Booking Summary</h2>
+                    <div class="no-selection">
+                        <b class="buy-status gray">You haven't selected any seat yet. Please click on one of the seat
+                            provided</b>
+                    </div>
+                    <div class="already-select">
+                        <h3><b><span class="title"></span></b></h3>
+                        <h4><span class="schedule"></span></h4>
+                        <div class="numberAndHarga">
+                            <h3 class="seatNumber"></h3>
+                            <h3 class="harga">Rp 45.000</h3>
+                        </div>
+                    </div>
+                    <div class="buy-button-container">
+                        <div class="buy-button"><p class="white">Buy Ticket</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-container">
+        <div class="modal-content">
+            <h2 class="modal-title dark-blue">Payment Success!</h2>
+            <div class="msg-container">
+                <p><b class="modal-msg">Thank you for purchasing! You can view your purchase now.</b></p>
+            </div>
+            <div class="historyButton">
+                <p class="white"><b>Go to transaction history</b></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var url = new URL(location);
+        var id = url.searchParams.get("id");
+        renderHeader(document, location, id);
+        renderSeat(document, location, id);
+    </script>
+</body>
+
+</html>

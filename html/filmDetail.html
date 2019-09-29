@@ -73,7 +73,7 @@
                         var url = new URL(location);
                         var id = url.searchParams.get("id");
                         connectPHPGET("http://localhost/wbd/php/getSchedule.php?id=" + id, function (has) {
-                            renderSchedule(document, has);
+                            renderSchedule(document, location, has);
                         })
                     </script>
                 </table>
