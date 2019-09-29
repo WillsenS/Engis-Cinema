@@ -184,4 +184,10 @@ body{
   opacity : 1;
 }
 
+.judul {
+    font-size: 35px;
+    padding: 0;
+    margin-left: 15%;
+}
+
 
