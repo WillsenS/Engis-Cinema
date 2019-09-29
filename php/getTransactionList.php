@@ -6,8 +6,9 @@
     //kumaha ieu skemana??
     $result = $db->query(
        "SELECT film_id, title, film_picture, film_schedule as avg_rating
-        FROM film NATURAL JOIN schedule NATURAL JOIN transactions
+        FROM film NATURAL JOIN schedule
         AS film(film_id, title, film_picture, film_schedule)"
+        //NATURAL JOIN transactions
     );
     if($result){
         $res = array();
