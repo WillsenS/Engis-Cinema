@@ -20,11 +20,11 @@ function checkLogin(doc, loc) {
     xmlhttp.send(dataForm);
     var hasil = "";
     xmlhttp.onload = function () {
-        console.log(hasil);
+        // console.log(hasil);
         hasil = JSON.parse(xmlhttp.responseText);
         if(hasil["status"] === 200) {
-            cookieStr = "accessTokenWBD="+hasil["cookie"]+"; expires="+new Date(Date.now() + 600000).toUTCString()+"; path=/";
-            console.log(cookieStr);
+            cookieStr = "accessTokenWBD="+hasil["cookie"]+"; expires="+new Date(Date.now() + 6000000).toUTCString()+"; path=/";
+            // console.log(cookieStr);
             doc.cookie = cookieStr;
             loc.href = "login.html";
         }else if(hasil["status"] === 401) {

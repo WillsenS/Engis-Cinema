@@ -19,7 +19,7 @@ function renderDetail(dis, hasil) {
     dis.getElementsByClassName("deskripsi")[0].innerHTML = hasil.detail;
 }
 
-function renderSchedule(dis, hasil) {
+function renderSchedule(dis, loc, hasil) {
     hasil = JSON.parse(hasil);
     hasil.forEach(has => {
         var row = dis.createElement("tr");
@@ -38,11 +38,19 @@ function renderSchedule(dis, hasil) {
         var status_img = dis.createElement("td");
         var img = dis.createElement("img");
 
-        if (parseInt(has["available_seat"]) > 0) {
+        var d = has["date"].split("-");
+        var t = has["time"].split(":");
+        var date = new Date(d[0], d[1] - 1, d[2], t[0], t[1], t[2], 0);
+        // console.log(date);
+        if ((parseInt(has["available_seat"]) > 0) && (date >= new Date())) {
             status.innerHTML = "Book Now";
             status.className = "seatA blue";
 
             img.src = "../img/arrow blue.png";
+            img.onclick = function() {
+                loc.href = "../html/buyTicket.html?id="+has["schedule_id"];
+            }
+            // console.log(img.onclick);
             status_img.appendChild(img);
         }else{
             status.innerHTML = "Not Available";
