@@ -9,12 +9,13 @@ function checkUsername(doc) {
 	xmlhttp.open("POST", "http://localhost/wbd/php/Username_check_register.php", true);
 	var dataForm = new FormData();
     dataForm.append("username", doc.getElementsByName("username")[0].value);
-	xmlhttp.send(dataForm)
+	xmlhttp.send(dataForm);
+	var hasil = "";
 	xmlhttp.onload = function () {
-        console.log(hasil);
+        console.log(xmlhttp.responseText);
         hasil = JSON.parse(xmlhttp.responseText);
-        if(hasil !== 404) {
-        	showMsg(usernameError,"Username is taken")
+        if(hasil !== 200) {
+        	showMsg("usernameError","Username is taken")
         }
     }
 }
@@ -24,12 +25,13 @@ function checkEmail(doc) {
 	xmlhttp.open("POST", "http://localhost/wbd/php/Email_check_register.php", true);
 	var dataForm = new FormData();
     dataForm.append("email", doc.getElementsByName("email")[0].value);
-	xmlhttp.send(dataForm)
+	xmlhttp.send(dataForm);
+	var hasil = "";
 	xmlhttp.onload = function () {
-        console.log(hasil);
+        console.log(xmlhttp.responseText);
         hasil = JSON.parse(xmlhttp.responseText);
-        if(hasil !== 404) {
-        	showMsg(emailError,"Email is taken, or invalid email format")
+        if(hasil !== 200) {
+        	showMsg("emailError","Email is taken, or invalid email format")
         }
     }
 }
@@ -39,19 +41,20 @@ function checkPhone(doc) {
 	xmlhttp.open("POST", "http://localhost/wbd/php/Phone_check_register.php", true);
 	var dataForm = new FormData();
     dataForm.append("phone", doc.getElementsByName("phone")[0].value);
-	xmlhttp.send(dataForm)
+	xmlhttp.send(dataForm);
+	var hasil = "";
 	xmlhttp.onload = function () {
         console.log(hasil);
         hasil = JSON.parse(xmlhttp.responseText);
-        if(hasil !== 404) {
-        	showMsg(phoneError,"Please use another phone number")
+        if(hasil !== 200) {
+        	showMsg("phoneError","Please use another phone number")
         }
     }
 }
 
 function checkCPass(doc) {
 	if (doc.getElementsByName("pass") == doc.getElementsByName("cpass")) {
-		showMsg(passwordError,"Password is not the same")
+		showMsg("passwordError","Password is not the same")
 		return false;
 	}
 	else {
@@ -63,7 +66,7 @@ function isUserValid(username) {
 	for (i in username) {
 		if (!(username.charCodeAt(i) >= 65) && (username.charCodeAt(i) <= 90)) {
 			if (!(username.charCodeAt(i) >= 97) && (username.charCodeAt(i) <= 122) && (username.charCodeAt(i) != 95)) {
-				showMsg(usernameError,"Username should use only alphabetical, numbers, and underscore")
+				showMsg("usernameError","Username should use only alphabetical, numbers, and underscore")
 				return false;
 			}
 		}
@@ -77,12 +80,12 @@ function isEmailValid(email) {
 			return true;
 		}
 		else {
-			showMsg(emailError,"Enter valid email!")
+			showMsg("emailError","Enter valid email!")
 			return false;
 		}
 	}
 	else {
-		showMsg(emailError,"Enter valid email!")
+		showMsg("emailError","Enter valid email!")
 		return false;
 	}
 }
@@ -92,7 +95,7 @@ function isPhoneValid(phone) {
 		return true;
 	}
 	else {
-		showMsg("Phone Number length should be 9-12")
+		showMsg("phoneError", "Phone Number length should be 9-12")
 		return false;
 	}
 }
