@@ -1,0 +1,151 @@
+html {
+    height: 100%;
+}
+body{
+    border: none;
+    margin: 0;
+    height: 100%;
+    background-color: rgb(29, 28, 28);
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.container {
+    background-color: white;
+    width: 80%;
+    display: grid;
+    margin: 0 auto;
+    box-shadow: inset 1px 4px 9px -6px gray;
+    padding: 20px 40px;
+    padding-top: 150px;
+    row-gap: 20px;
+}
+
+/* .container > input[type= submit] {
+    background-color: DodgerBlue;
+    color: white;
+    margin-left: 77.5%;
+    width: 80px;
+    height: 40px;
+    font-size: 12px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    resize: none;
+} */
+
+.cancel-button {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 120px;
+    color: gray;
+    padding: 15px 0px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    float: right;
+    margin: 0px 10px;
+}
+
+.submit-button {
+    background-color: #32beda;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    color: white;
+    padding: 15px 0px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    float: right;
+    margin: 0px 10px;
+}
+
+#FormReview {
+    margin-top: 5%;
+    margin-left: 20%;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 5%;
+}
+
+#FormReview > textarea {
+    border: 3px solid #555;
+    width: 60%;
+    margin-left: 9.5%;
+    height: 95px;
+    padding: 10px;
+    text-align: left;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-size: 11px;
+    font-family: 'Raleway', sans-serif;
+    vertical-align: top
+}
+
+.starRating:not(old){
+  display: inline-block;
+  width: 15em;
+  height: 1.5em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.starRating:not(old) > input{
+  margin-right: -100%;
+  opacity: 0;
+}
+
+.starRating:not(old) > label{
+  display: block;
+  float: right;
+  position: relative;
+  background: url('../img/star-off.svg');
+  background-size: contain;
+}
+
+.starRating:not(old) > label:before{
+  content: '';
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  background: url('../img/star-on.svg');
+  background-size: contain;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.starRating:not(old) > label:hover:before,
+.starRating:not(old) > label:hover ~ label:before,
+.starRating:not(:hover) > :checked ~ label:before{
+  opacity : 1;
+}
+
+.judul-h {
+    margin: 0;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.judul {
+    padding: 0;
+    margin: 0;
+    padding-left: 30px;
+}
+
+.back {
+    margin-left: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+.header {
+    display: flex;
+}
+
