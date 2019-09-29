@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 28, 2019 at 09:34 AM
+-- Generation Time: Sep 29, 2019 at 09:58 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -69,7 +69,7 @@ CREATE TABLE `film_review` (
 --
 
 INSERT INTO `film_review` (`user_id`, `film_id`, `rating`, `review`) VALUES
-(1, 2, 8, 'Bagus'),
+(1, 2, 8, ' adadawd'),
 (2, 1, 5, 'Lumayan lah'),
 (3, 1, 10, 'Best film ever in the history of anime. 10/10 bakal nonton lagi karena saya sangat suka film ini.'),
 (3, 2, 2, 'meh'),
@@ -91,7 +91,7 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`user_id`, `cookies`) VALUES
-(1, 'xosr5ZDHZaLH8B1qepavqj05GJNrrVV7vOaKCnBP'),
+(1, 'wTutpxkEGQh5Cxfu6sNXM9LyBndwIiWh9aSYItBC'),
 (3, 'LdF3ROUnhExI0edSRUYQzeVFq1VTkMi9t5BMg10e');
 
 -- --------------------------------------------------------
@@ -114,16 +114,17 @@ CREATE TABLE `schedule` (
 
 INSERT INTO `schedule` (`schedule_id`, `film_id`, `date`, `time`, `available_seat`) VALUES
 (1, 1, '2019-09-03', '18:30:00', 10),
-(2, 1, '2019-09-28', '18:30:00', 25),
-(3, 3, '2019-09-14', '17:00:00', 2),
-(4, 3, '2019-09-12', '18:30:00', 12),
-(5, 3, '2019-09-08', '15:06:00', 0),
-(6, 3, '2019-09-28', '15:02:00', 2),
+(2, 1, '2019-09-30', '23:30:00', 25),
+(3, 3, '2019-09-14', '17:00:00', 30),
+(4, 3, '2019-09-30', '18:30:00', 6),
+(5, 2, '2019-09-25', '15:06:00', 5),
+(6, 6, '2019-11-05', '15:02:00', 40),
 (7, 3, '2019-09-09', '15:02:00', 0),
 (8, 7, '2019-09-20', '12:00:00', 5),
 (9, 7, '2019-09-21', '12:31:26', 53),
 (10, 4, '2019-09-08', '10:21:22', 10),
-(11, 7, '2019-09-21', '13:31:26', 50);
+(11, 5, '2019-09-21', '13:31:26', 50),
+(12, 5, '2019-10-01', '17:31:26', 50);
 
 -- --------------------------------------------------------
 
@@ -143,9 +144,26 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`film_id`, `schedule_id`, `seat`, `user_id`) VALUES
+(1, 2, 1, 1),
+(1, 2, 2, 1),
+(1, 2, 3, 1),
+(1, 2, 5, 1),
+(1, 2, 7, 1),
+(1, 2, 8, 1),
+(1, 2, 10, 1),
+(1, 2, 13, 1),
+(1, 2, 17, 1),
+(1, 2, 19, 1),
+(1, 2, 22, 1),
+(3, 4, 2, 1),
+(3, 4, 5, 1),
+(3, 4, 6, 1),
+(6, 6, 2, 1),
+(6, 6, 30, 1),
+(7, 8, 1, 1),
+(7, 8, 2, 1),
 (7, 8, 5, 1),
 (1, 1, 8, 2),
-(1, 2, 1, 3),
 (4, 10, 1, 3);
 
 -- --------------------------------------------------------
@@ -230,13 +248,13 @@ ALTER TABLE `film`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
