@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/color.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="shortcut icon" href="">
+    <script src="../js/token.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="../js/navbar.js"></script>
+    <title>Home</title>
+</head>
+
+<!-- <body class="defFont"> -->
+<body class="defFont" onload="load(document, location, false)">
+    <div id="nav-bar">
+        <div id="Kosong1"></div>
+        <div id="Engi">
+            <p onclick="goHome(location)"><b><span class="blue">Engi</span>ma</b></p>
+        </div>
+        <div id="Search">
+            <form method="POST" id="search-form" onsubmit="search(document, location); return false;">
+                <input id="movieName" type="text" placeholder="Search movie">
+                <input type="submit" value="">
+            </form>
+        </div>
+        <div id="Kosong2"></div>
+        <div id="Transaction" onclick="goTransc(location)">
+            <a><b>Transaction</b></a>
+        </div>
+        <div id="Logout" onclick="logout(document, location)">
+            <a><b>Logout</b></a>
+        </div>
+        <div id="Kosong3"></div>
+    </div>
+    <div class="home-content-container">
+        <div class="home-content">
+            <b class="hello">Hello, <span class="user-name blue"></span>!</b>
+            <script type="text/javascript">
+                showName(document);
+            </script>
+            <p class="now-play">Now Playing</p>
+            <div class="film-list">
+                <script type="text/javascript">
+                    showFilmList(document, location);
+                </script>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

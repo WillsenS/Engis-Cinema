@@ -2,6 +2,10 @@
     color: #32beda;
 }
 
+.dark-blue {
+    color: #238497;
+}
+
 .gray {
     color: gray;
 }
@@ -12,4 +16,12 @@
 
 .black {
     color: black;
+}
+
+.dark-grey {
+    color: rgb(87, 87, 87);
+}
+
+.white {
+    color: white;
 }

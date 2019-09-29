@@ -1,0 +1,169 @@
+html {
+    height: 100%;
+}
+body{
+    border: none;
+    margin: 0;
+    height: 100%;
+    background-color: rgb(29, 28, 28);
+}
+
+.film-content-container {
+    background-color: white;
+    width: 80%;
+    display: grid;
+    margin: 0 auto;
+    min-height: calc(100% - 170px);
+    height: auto;
+    box-shadow: inset 0px 105px 9px -6px gray;
+    padding: 20px 40px;
+    padding-top: 150px;
+    row-gap: 20px;
+}
+
+.film-info1 {
+    grid-row: 1 / span 1;
+    display: flex;
+    width: 100%;
+}
+
+.film-image {
+    flex-grow: 1;
+    padding: 10px;
+    flex-basis: 0%;
+}
+
+.film-detail {
+    flex-grow: 3;
+    padding: 20px;
+}
+
+
+.film-info2 {
+    grid-row: 2 / span 1;
+    display: flex;
+    width: 100%;
+}
+
+.film-schedules {
+    flex-grow: 3;
+    flex-basis: 0%;
+} 
+
+.film-reviews {
+    flex-grow: 2;
+}
+
+.film-image > img {
+    border-radius: 10px;
+    width: 250px;
+    height: 350px;
+}
+
+.judul {
+    font-size: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+
+.rating {
+    display: flex;
+}
+
+.rating > p {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.rating > p > span {
+    font-size: 25px;
+    padding: 5px;
+}
+
+.star {
+    background: url("../img/star.png");
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-self: center;
+
+}
+
+.film-content-box {
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0px 0px 20px 2px #E0E0E0;
+    border-radius: 20px;
+    padding: 20px;
+    align-self: flex-start;
+    margin: 10px;
+}
+
+
+
+.jadwal {
+    border-collapse: collapse;
+    width: 700px;
+}
+
+th, td {
+    border-bottom: 1px solid black;
+    text-align: left;
+    font-size: 17px; 
+    padding: 10px;
+    color: grey;
+}
+
+.seatNA, .seatA {
+    text-align: right;
+}
+
+/* Review */
+.prof-pict {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.review-card {
+    display: flex;
+    padding: 10px;
+}
+
+.review-card-content {
+    display: block;
+    padding-left: 10px;
+}
+
+.review-card-content > p {
+    margin: 0;
+}
+
+.review-card-content > .rating > p {
+    height: 30px;
+    font-size: 13px;
+    padding-left: 5px;
+}
+
+.review-card-content > .rating > p > span {
+    font-size: 15px;
+}
+
+.review-card-content > .rating > .star {
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.film-content-box > h2 {
+    margin: 0;
+}
+
+
