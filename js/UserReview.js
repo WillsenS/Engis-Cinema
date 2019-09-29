@@ -13,20 +13,39 @@ function renderJudul(dis, hasil) {
     dis.getElementsByClassName("judul")[0].innerHTML = hasil.title;
 }
 
-function Submitting (doc,loc) {
-	var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost/wbd/php/UserReview.php", true);
+function Submitting(doc, loc) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "../php/UserReview.php", true);
     var dataForm = new FormData();
     var token = getToken(doc, "accessTokenWBD");
-    dataForm.append("rating", doc.getElementsByName("rating")[0].value);
-    dataForm.append("review", doc.getElementsByName("review")[0].value);
-    dataForm.append("review", doc.getElementsByClassName("judul")[0].value);
-    dataForm.append("token", token[0].value);
-	var hasil = "";
-    xmlhttp.onload = function () {
-    console.log(hasil);
-    hasil = JSON.parse(xmlhttp.responseText);
-    if(hasil["status"] === 200) {
-    	loc.href = "UserReview.html";
+
+    var rating = doc.getElementsByName("rating");
+    var ratingVal = 0;
+    for (let i = 0, length = rating.length; i < length; i++)
+    {
+        if (rating[i].checked)
+        {
+            // console.log(rating[i].value);
+            ratingVal = rating[i].value;
+            // console.log(ratingVal);
+            break;
+        }
     }
+    // console.log(ratingVal);
+    dataForm.append("rating", ratingVal);
+    dataForm.append("review", doc.getElementsByName("review")[0].value);
+    var url = new URL(loc);
+    var id = url.searchParams.get("id");
+    dataForm.append("film_id", id);
+    dataForm.append("token", token);
+    var hasil = "";
+    xmlhttp.onload = function () {
+        console.log(xmlhttp.responseText);
+        hasil = JSON.parse(xmlhttp.responseText);
+        if (hasil["status"] === 200) {
+            loc.href = "UserReview.html?id=" + id;
+        }
+    }
+    xmlhttp.send(dataForm);
 }
+

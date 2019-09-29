@@ -1,0 +1,135 @@
+.defFont {
+    font-family: Lato;
+}
+
+html, body, .register-container {
+    height: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+
+.welcome {
+	color: black;
+	text-align: center;
+	font-weight: normal;
+}
+
+.register-container {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-box {
+	width: 25%;
+    border: 1px solid gray;
+	box-shadow: 0px 0px 20px 10px #E0E0E0;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+	padding: 20px 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* input {
+	border: 3px solid #555;
+	width: 75%;
+	margin-bottom: 15px;
+	height: 40px;
+	padding: 12px 20px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	resize: none;
+} */
+.input-text{
+	box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 20px;
+    display: inline-block;
+    font-size: 16px;
+    padding: 15px 15px;
+}
+
+[type="file"] {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	white-space: nowrap;
+	width: 1px; 
+	float: left;
+}
+
+#imgUpload-dummy {
+	box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 5px;
+	width: 49%;
+	height: 50px;
+    font-size: 20px;
+	padding: 15px 15px;
+	float: left;
+}
+
+.imgUpload-button {
+	background-color: gray;
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	/* display: inline-block; */
+	line-height: 3rem;
+	font-size: 20px;
+	width: 49%;
+	height: 50px;
+	float: right;
+}
+
+
+.unik {
+	border: 1px solid green;
+}
+
+.notUnik {
+	border: 1px solid red;
+}
+
+
+.register-form > p {
+	margin-left: 0px;
+	margin-bottom: 5px;
+}
+
+.errorMsg {
+	font-size: 14px;
+	display: block;
+}
+
+.submit-button {
+	background-color: #32beda;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+.register-box > b {
+	margin-top: 20px;
+	text-align: center;
+}

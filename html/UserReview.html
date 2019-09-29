@@ -1,47 +1,54 @@
 <!DOCTYPE html>
+
 <head>
   <link rel="stylesheet" type="text/css" href="../css/UserReview.css">
+  <link rel="stylesheet" type="text/css" href="../css/navbar.css">
+  <link rel="stylesheet" type="text/css" href="../css/color.css">
   <script src="../js/UserReview.js"></script>
   <script src="../js/token.js"></script>
-
+  <script src="../js/navbar.js"></script>
 </head>
-<body onload="load(document, location, false)">
+
+<body class="defFont" onload="load(document, location, false)">
   <div id="nav-bar">
     <div id="Kosong1"></div>
     <div id="Engi">
-      <p><b><span>Engi</span>ma</b></p>
+      <p onclick="goHome(location)"><b><span class="blue">Engi</span>ma</b></p>
     </div>
     <div id="Search">
-      <form method="POST" id="search-form">
-        <input type="text" placeholder="Search movie">
+      <form method="POST" id="search-form" onsubmit="search(document, location); return false;">
+        <input id="movieName" type="text" placeholder="Search movie">
         <input type="submit" value="">
       </form>
     </div>
     <div id="Kosong2"></div>
-    <div id="Transaction">
+    <div id="Transaction" onclick="goTransc(location)">
       <a><b>Transaction</b></a>
     </div>
-    <div id="Logout">
+    <div id="Logout" onclick="logout(document, location)">
       <a><b>Logout</b></a>
     </div>
     <div id="Kosong3"></div>
   </div>
   <div class="container">
-    <h1>
-      <input style="margin-left: 40px;" type="image" src="../img/back.png" onclick="window.location.href='http://localhost/wbd/html/home.html'">
-      <p class="judul"> Tenki no Ko </p>
-    </h1>
+    <div class="header">
+      <input class="back" type="image" src="../img/back.png"
+        onclick="window.location.href='http://localhost/wbd/html/home.html'">
+      <h1 class="judul-h">
+        <p class="judul"> Tenki no Ko </p>
+      </h1>
+    </div>
     <script type="text/javascript">
       var url = new URL(location);
       var id = url.searchParams.get("id");
       connectPHPGET("http://localhost/wbd/php/getFilm.php?id=" + id, function (has) {
         renderJudul(document, has);
-      })
+      });
     </script>
     <form onsubmit="Submitting(document, location); return false;">
-      <div id="FormReview" >
+      <div id="FormReview">
         Add Rating
-        <span style="margin-left: 10%;"class="starRating">
+        <span style="margin-left: 10%;" class="starRating">
           <input id="rating10" type="radio" name="rating" value="10">
           <label for="rating10">10</label>
           <input id="rating9" type="radio" name="rating" value="9">
@@ -65,11 +72,13 @@
         </span>
         <br><br>
         Add Review
-        <textarea name="Review" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."> </textarea> <br>
+        <textarea name="review" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."> </textarea> <br>
       </div>
+      <input class="submit-button" type="submit" name="submitReview" value="Submit">
+      <div class="cancel-button" onclick="goTransc(location)">Cancel</div>
     </form>
-    <input type="submit" name="submitReview" value="submit">
   </div>
 
 </body>
+
 </html>
