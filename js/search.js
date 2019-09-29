@@ -82,7 +82,7 @@ function showPagination(doc, loc, name, filmPerPage, curPage, numOfPage)
 function showSearchResult(doc, loc, name, page, filmPerPage) {
     var xmlhttp = new XMLHttpRequest();
     var hasil = "";
-    xmlhttp.open("GET", "http://localhost/wbd/php/searchFilm.php?name="+name);
+    xmlhttp.open("GET", "../php/searchFilm.php?name="+name);
     xmlhttp.onload = function () {
         hasil = JSON.parse(xmlhttp.responseText);
         var banyakFilm = hasil.length;

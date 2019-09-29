@@ -53,7 +53,7 @@
             <script type="text/javascript">
                 var url = new URL(location);
                 var id = url.searchParams.get("id");
-                connectPHPGET("http://localhost/wbd/php/getFilm.php?id=" + id, function (has) {
+                connectPHPGET("../php/getFilm.php?id=" + id, function (has) {
                     renderDetail(document, has);
                 })
             </script>
@@ -72,7 +72,7 @@
                     <script type="text/javascript">
                         var url = new URL(location);
                         var id = url.searchParams.get("id");
-                        connectPHPGET("http://localhost/wbd/php/getSchedule.php?id=" + id, function (has) {
+                        connectPHPGET("../php/getSchedule.php?id=" + id, function (has) {
                             renderSchedule(document, location, has);
                         })
                     </script>
@@ -83,7 +83,7 @@
                 <script type="text/javascript">
                     var url = new URL(location);
                     var id = url.searchParams.get("id");
-                    connectPHPGET("http://localhost/wbd/php/getReview.php?id=" + id, function (has) {
+                    connectPHPGET("../php/getReview.php?id=" + id, function (has) {
                         renderReview(document, has);
                     })
                 </script>

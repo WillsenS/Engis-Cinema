@@ -13,7 +13,7 @@ function createWrongMsg(doc, msg) {
 
 function checkLogin(doc, loc) {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "http://localhost/wbd/php/login.php", true);
+    xmlhttp.open("POST", "../php/login.php", true);
     var dataForm = new FormData();
     dataForm.append("email", doc.getElementsByName("email")[0].value);
     dataForm.append("password", doc.getElementsByName("password")[0].value);

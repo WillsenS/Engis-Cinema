@@ -15,7 +15,7 @@ function getIdFromToken(doc, loc, token, redirect) {
     var xmlhttp = new XMLHttpRequest();
     var hasil = "";
     var id = -1;
-    xmlhttp.open("GET", "http://localhost/wbd/php/getId.php?token=" + token);
+    xmlhttp.open("GET", "../php/getId.php?token=" + token);
     xmlhttp.onload = function () {
         hasil = JSON.parse(xmlhttp.responseText);
         userId = hasil["user_id"];

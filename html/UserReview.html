@@ -33,7 +33,7 @@
   <div class="container">
     <div class="header">
       <input class="back" type="image" src="../img/back.png"
-        onclick="window.location.href='http://localhost/wbd/html/home.html'">
+        onclick="window.location.href='../html/home.html'">
       <h1 class="judul-h">
         <p class="judul"> Tenki no Ko </p>
       </h1>
@@ -41,7 +41,7 @@
     <script type="text/javascript">
       var url = new URL(location);
       var id = url.searchParams.get("id");
-      connectPHPGET("http://localhost/wbd/php/getFilm.php?id=" + id, function (has) {
+      connectPHPGET("../php/getFilm.php?id=" + id, function (has) {
         renderJudul(document, has);
       });
     </script>

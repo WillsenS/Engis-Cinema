@@ -11,7 +11,7 @@ var phoneUnique = false;
 
 function checkUsername(doc) {
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST", "http://localhost/wbd/php/Username_check_register.php", true);
+	xmlhttp.open("POST", "../php/Username_check_register.php", true);
 	var dataForm = new FormData();
 	dataForm.append("username", doc.getElementsByName("username")[0].value);
 	xmlhttp.send(dataForm);
@@ -34,7 +34,7 @@ function checkUsername(doc) {
 
 function checkEmail(doc) {
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST", "http://localhost/wbd/php/Email_check_register.php", true);
+	xmlhttp.open("POST", "../php/Email_check_register.php", true);
 	var dataForm = new FormData();
 	dataForm.append("email", doc.getElementsByName("email")[0].value);
 	xmlhttp.send(dataForm);
@@ -57,7 +57,7 @@ function checkEmail(doc) {
 
 function checkPhone(doc) {
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST", "http://localhost/wbd/php/Phone_check_register.php", true);
+	xmlhttp.open("POST", "../php/Phone_check_register.php", true);
 	var dataForm = new FormData();
 	dataForm.append("phone", doc.getElementsByName("phone")[0].value);
 	xmlhttp.send(dataForm);

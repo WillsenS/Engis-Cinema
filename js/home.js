@@ -2,7 +2,7 @@ function showName(doc) {
     var token = getToken(doc, "accessTokenWBD");
     var xmlhttp = new XMLHttpRequest();
     var hasil = "";
-    xmlhttp.open("GET", "http://localhost/wbd/php/getName.php?token=" + token);
+    xmlhttp.open("GET", "../php/getName.php?token=" + token);
     xmlhttp.onload = function () {
         hasil = JSON.parse(xmlhttp.responseText);
         doc.getElementsByClassName("user-name")[0].innerHTML = hasil["username"];
@@ -13,7 +13,7 @@ function showName(doc) {
 function showFilmList(doc, loc) {
     var xmlhttp = new XMLHttpRequest();
     var hasil = "";
-    xmlhttp.open("GET", "http://localhost/wbd/php/getFilmList.php");
+    xmlhttp.open("GET", "../php/getFilmList.php");
     xmlhttp.onload = function () {
         hasil = JSON.parse(xmlhttp.responseText);
         // <div class="film-card">
