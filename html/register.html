@@ -3,37 +3,47 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/register.css">
+	<link rel="stylesheet" type="text/css" href="../css/color.css">
 	<script src="../js/token.js"></script>
 	<script src="../js/register.js"></script>
 </head>
 
-<body onload="load(document, location, true)">
-	<h1> Welcome to <strong>Engi</strong>ma! </h1>
-	<form method="POST" onsubmit="checkSubmit(document); return false;">
-		<p>
-			Username<br>
-			<input type="text" name="username" placeholder="Joe.Johndoe" onchange="checkUsername(document)"><br>
-			<p id="usernameError" style="color: red; font-size: 9px; display: none;"></p>
-			Email Address<br>
-			<input type="text" name="email" placeholder="joe@email.com" onchange="checkEmail(document)"><br>
-			<p id="emailError" style="color: red; font-size: 9px; display: none;"></p>
-			Phone Number<br>
-			<input type="text" name="phone" placeholder="+628xxxxxxxxx" onchange="checkPhone(document)"><br>
-			<p id="phoneError" style="color: red; font-size: 9px; display: none;"></p>
-			Password<br>
-			<input type="password" name="pass" placeholder="Make as strong as possible"><br>
-			Confirm Password<br>
-			<input type="password" name="cpass" placeholder="Same as above" onchange="checkCPass(document)"><br>
-			<p id="passwordError" style="color: red; font-size: 6px; display: none;"></p>
-			Profile Picture<br>
-			<input type="file" name="picture" accept="image/*" onchange="readImg(document)"/>
-			<input style="background-color: DodgerBlue;color: white;" type="submit" value="Register">
-		</p>
-		<p style="font-weight: bold;font-family:Calibri;margin-left: 39%">
-			Already have an account?
-			<a href="">Login Here</a>
-		</p>
-	</form>
+<body class="defFont" onload="load(document, location, true)">
+	<div class="register-container">
+		<div class="register-box">
+			<h2 class="welcome"> Welcome to <strong>Engi</strong>ma! </h2>
+			<form class="register-form" method="POST" onsubmit="checkSubmit(document, location); return false;">
+				<p><b>Username</b></p>
+				<input class="input-text" type="text" name="username" placeholder="Joe.Johndoe"
+					onchange="checkUsername(document)"><br>
+				<p id="usernameError" class="errorMsg red"></p>
+				<p><b>Email Address</b></p>
+				<input class="input-text" type="text" name="email" placeholder="joe@email.com"
+					onchange="checkEmail(document)"><br>
+				<p id="emailError" class="errorMsg red"></p>
+				<p><b>Phone Number</b></p>
+				<input class="input-text" type="text" name="phone" placeholder="+628xxxxxxxxx"
+					onchange="checkPhone(document)"><br>
+				<p id="phoneError" class="errorMsg red"></p>
+				<p><b>Password</b></p>
+				<input class="input-text" type="password" name="pass" placeholder="Make as strong as possible"><br>
+				<p><b>Confirm Password</b></p>
+				<input class="input-text" type="password" name="cpass" placeholder="Same as above"
+					onchange="checkCPass(document)"><br>
+				<p id="passwordError" class="errorMsg red"></p>
+				<p><b>Profile Picture</b></p>
+				<div class="imgUpload-container">
+					<input id="imgUpload" class="input-text" type="file" name="picture" accept="image/*"
+						onchange="readImg(document)" />
+					<input id="imgUpload-dummy" type="dummy" name="dummy" readonly>
+					<label class="imgUpload-button" for="imgUpload">Browse</label>
+				</div>
+				<input class="submit-button" type="submit" value="Register">
+			</form>
+			<b>Already have an account? <a class="blue" href="../html/login.html">Login Here</a></b>
+			</p>
+		</div>
+	</div>
 </body>
 
 </html>

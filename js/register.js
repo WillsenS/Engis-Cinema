@@ -14,8 +14,13 @@ function checkUsername(doc) {
 	xmlhttp.onload = function () {
 		console.log(xmlhttp.responseText);
 		hasil = JSON.parse(xmlhttp.responseText);
+		doc.getElementsByName("username")[0].className = "input-text";
 		if (hasil !== 200) {
-			showMsg("usernameError", "Username is taken")
+			doc.getElementsByName("username")[0].className += " notUnik";
+			showMsg("usernameError", "Username is taken");
+		}else{
+			doc.getElementsByName("username")[0].className += " unik";
+			document.getElementById("usernameError").style.display = 'none';
 		}
 	}
 }
@@ -30,8 +35,13 @@ function checkEmail(doc) {
 	xmlhttp.onload = function () {
 		console.log(xmlhttp.responseText);
 		hasil = JSON.parse(xmlhttp.responseText);
+		doc.getElementsByName("email")[0].className = "input-text";
 		if (hasil !== 200) {
-			showMsg("emailError", "Email is taken, or invalid email format")
+			doc.getElementsByName("email")[0].className += " notUnik";
+			showMsg("emailError", "Email is taken, or invalid email format");
+		}else{
+			doc.getElementsByName("email")[0].className += " unik";
+			document.getElementById("emailError").style.display = 'none';
 		}
 	}
 }
@@ -46,8 +56,13 @@ function checkPhone(doc) {
 	xmlhttp.onload = function () {
 		console.log(hasil);
 		hasil = JSON.parse(xmlhttp.responseText);
+		doc.getElementsByName("phone")[0].className = "input-text";
 		if (hasil !== 200) {
-			showMsg("phoneError", "Please use another phone number")
+			doc.getElementsByName("phone")[0].className += " notUnik";
+			showMsg("phoneError", "Please use another phone number");
+		}else{
+			doc.getElementsByName("phone")[0].className += " unik";
+			document.getElementById("phoneError").style.display = 'none';
 		}
 	}
 }
@@ -103,7 +118,7 @@ function isPhoneValid(phone) {
 var imgEncoded = "";
 var imgPath = "";
 
-function checkSubmit(doc) {
+function checkSubmit(doc, loc) {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("POST", "../php/Submit_register.php", true);
 	var dataForm = new FormData();
@@ -114,8 +129,8 @@ function checkSubmit(doc) {
 	dataForm.append("cpass", doc.getElementsByName("cpass")[0].value);
 	dataForm.append("imgEncoded", imgEncoded);
 	dataForm.append("imgPath", imgPath);
-	if(true){
-	// if (isUserValid(doc.getElementsByName("username")) && (isEmailValid(doc.getElementsByName("username"))) && (isPhoneValid(doc.getElementsByName("username"))) && (checkCPass(doc.getElementsByName("cpass")))) {
+	// if(true){
+	if (isUserValid(doc.getElementsByName("username")) && (isEmailValid(doc.getElementsByName("username"))) && (isPhoneValid(doc.getElementsByName("username"))) && (checkCPass(doc.getElementsByName("cpass")))) {
 		xmlhttp.send(dataForm);
 		var hasil = "";
 		xmlhttp.onload = function () {
@@ -138,6 +153,7 @@ function readImg(doc) {
 	if (pic.files && pic.files[0]) {
 		var fr = new FileReader();
 		imgPath = pic.files[0].name;
+		doc.getElementById("imgUpload-dummy").value = imgPath; 
 		fr.addEventListener("load", function (event) {
 			imgEncoded = event.target.result;
 		});
